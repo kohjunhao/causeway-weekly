@@ -12,6 +12,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      EXPORT_KEY: ${{ secrets.EXPORT_KEY }}
+      FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -31,9 +35,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh issue create --title "$(head -1 public/latest-title.txt)" --body-file public/latest.md
       - name: Send to subscribers
-        if: ${{ secrets.RESEND_API_KEY != '' }}
-        env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          EXPORT_KEY: ${{ secrets.EXPORT_KEY }}
-          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+        if: ${{ env.RESEND_API_KEY != '' }}
         run: python send.py

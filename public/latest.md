@@ -67,6 +67,9 @@ S$1 = RM3.1914 on 2026-10-01, flat against the ringgit this week. 30-day range R
 ![Tuas Checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-02/cam-4713.jpg)
 *Tuas Checkpoint*
 
+![AYE after Tuas West Road, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-02/cam-4712.jpg)
+*AYE after Tuas West Road, towards the checkpoint*
+
 ## Sponsor
 
 This slot is empty this week. One sponsor per issue, S$200, two plain lines. https://github.com/kohjunhao/causeway-weekly/issues/new?title=Sponsor%20an%20issue

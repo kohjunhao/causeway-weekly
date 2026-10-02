@@ -1,0 +1,30 @@
+{
+  "school_holidays": [
+    {"side": "sg", "label": "Singapore March school holidays", "start": "2026-03-14", "end": "2026-03-22", "source": "https://www.moe.gov.sg/news/press-releases/20250730-school-terms-and-holidays-for-2026"},
+    {"side": "sg", "label": "Singapore June school holidays", "start": "2026-05-30", "end": "2026-06-28", "source": "https://www.moe.gov.sg/news/press-releases/20250730-school-terms-and-holidays-for-2026"},
+    {"side": "sg", "label": "Singapore September school holidays", "start": "2026-09-05", "end": "2026-09-13", "source": "https://www.moe.gov.sg/news/press-releases/20250730-school-terms-and-holidays-for-2026"},
+    {"side": "sg", "label": "Singapore year-end school holidays", "start": "2026-11-21", "end": "2027-01-03", "source": "https://www.moe.gov.sg/news/press-releases/20250730-school-terms-and-holidays-for-2026"},
+    {"side": "sg", "label": "Singapore March school holidays", "start": "2027-03-13", "end": "2027-03-21", "source": "https://www.moe.gov.sg/calendar"},
+    {"side": "sg", "label": "Singapore June school holidays", "start": "2027-05-29", "end": "2027-06-27", "source": "https://www.moe.gov.sg/calendar"},
+    {"side": "sg", "label": "Singapore September school holidays", "start": "2027-09-04", "end": "2027-09-12", "source": "https://www.moe.gov.sg/calendar"},
+    {"side": "sg", "label": "Singapore year-end school holidays", "start": "2027-11-20", "end": "2027-12-31", "source": "https://www.moe.gov.sg/calendar"},
+    {"side": "my", "label": "Johor March school break (Group B)", "start": "2026-03-21", "end": "2026-03-29", "source": "https://globalholidayscalendar.com/school-holidays/malaysia/2026"},
+    {"side": "my", "label": "Johor mid-year school break (Group B)", "start": "2026-05-23", "end": "2026-06-07", "source": "https://globalholidayscalendar.com/school-holidays/malaysia/2026"},
+    {"side": "my", "label": "Johor September school break (Group B)", "start": "2026-08-29", "end": "2026-09-06", "source": "https://globalholidayscalendar.com/school-holidays/malaysia/2026"},
+    {"side": "my", "label": "Johor year-end school break (Group B)", "start": "2026-12-05", "end": "2027-01-03", "source": "https://globalholidayscalendar.com/school-holidays/malaysia/2026"}
+  ],
+  "rule_changes": [
+    {"date": "2026-10-06", "title": "No SG Arrival Card without a valid Singapore VEP", "body": "From 6 October 2026, a Malaysian-registered car cannot complete the SG Arrival Card unless it already holds a valid Singapore Vehicle Entry Permit from LTA. The permit needs Singapore motor insurance, so sort both before the trip.", "source": "https://www.malaymail.com/news/singapore/2026/09/23/driving-to-singapore-no-sg-arrival-card-without-valid-vep-starting-oct-6/236190", "source_name": "ICA via Malay Mail, 23 Sep 2026"},
+    {"date": "2026-11-02", "title": "Unpaid Singapore fines block VEP renewal and entry", "body": "From 2 November 2026, a foreign-registered vehicle with unpaid Singapore traffic, parking or emissions fines cannot apply for or renew its VEP and will be refused entry at Woodlands and Tuas.", "source": "https://www.ica.gov.sg/news-and-publications/newsroom/media-release/heavy-traffic-expected-at-land-checkpoints-during-national-day-long-weekend", "source_name": "ICA media release, 3 Aug 2026"},
+    {"date": "2027-02-01", "title": "RTS Link opening now expected in February 2027", "body": "The Straits Times reported on 2 October 2026 that the Johor Bahru to Woodlands North rail link is now expected to open in February 2027 instead of December 2026. Government pages still carried the December 2026 target as of 30 September 2026. Five minutes station to station, up to 10,000 passengers an hour each way, immigration for both countries cleared at the departure station.", "source": "https://www.straitstimes.com/singapore/rts-link-now-expected-to-open-in-feb-2027-instead-of-dec-2026", "source_name": "The Straits Times, 2 Oct 2026"}
+  ],
+  "standing_rules": [
+    {"title": "Johor's weekend is Saturday and Sunday", "body": "Johor moved its rest days back to Saturday and Sunday on 1 January 2025, so both sides of the Causeway now share the same weekend.", "source": "https://www.channelnewsasia.com/asia/malaysia-johor-weekend-days-change-saturday-sunday-january-2025-4662706", "source_name": "CNA, 7 Oct 2024"},
+    {"title": "Malaysia enforces its own VEP on Singapore cars", "body": "Singapore-registered vehicles need a Malaysian VEP tag to enter Johor. Enforcement began in phases from 1 October 2024.", "source": "https://www.thestar.com.my/news/nation/2024/09/27/vep-enforcement-for-singapore-vehicles-to-start-in-phases-from-oct-1-says-jpj", "source_name": "The Star, 27 Sep 2024"},
+    {"title": "Live traffic by phone", "body": "ICA's CHECK-TIPS hotline for the checkpoint traffic situation is 6863 0117.", "source": "https://www.ica.gov.sg/", "source_name": "ICA website"}
+  ],
+  "records": {
+    "single_day": {"count": 598000, "date": "2026-06-19", "note": "Record single-day crossings at Woodlands and Tuas combined, beating 589,000 on 19 December 2025.", "source": "https://www.ica.gov.sg/news-and-publications/newsroom/media-release/heavy-traffic-expected-at-land-checkpoints-during-national-day-long-weekend", "source_name": "ICA media release, 3 Aug 2026"},
+    "june_period": {"count": 18000000, "label": "crossings between 26 May and 28 June 2026", "source": "https://www.ica.gov.sg/news-and-publications/newsroom/media-release/heavy-traffic-expected-at-land-checkpoints-during-national-day-long-weekend"}
+  }
+}

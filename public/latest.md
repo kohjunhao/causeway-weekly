@@ -1,19 +1,13 @@
-# Causeway Weekly, issue 3, Monday 12 October 2026
+# Causeway Weekly, issue 4, Sunday 18 October 2026
 
 **No long-weekend jam in the next fortnight.** **Mon 2 Nov: Unpaid Singapore fines block VEP renewal and entry.**
 
-Read online: https://causeway-weekly.vercel.app/issues/2026-10-12
+Read online: https://causeway-weekly.vercel.app/issues/2026-10-18
 
-## Jam forecast, Tue 13 Oct to Mon 26 Oct
+## Jam forecast, Mon 19 Oct to Sun 1 Nov
 
 | Date | What is on | To JB | To SG |
 |---|---|---|---|
-| Tue 13 Oct | Normal working day | Low | Low |
-| Wed 14 Oct | Normal working day | Low | Low |
-| Thu 15 Oct | Normal working day | Low | Low |
-| Fri 16 Oct | Friday evening exodus | Medium | Low |
-| Sat 17 Oct | Saturday morning crowd | Medium | Low |
-| Sun 18 Oct | Sunday evening return | Low | Medium |
 | Mon 19 Oct | Normal working day | Low | Low |
 | Tue 20 Oct | Normal working day | Low | Low |
 | Wed 21 Oct | Normal working day | Low | Low |
@@ -22,6 +16,12 @@ Read online: https://causeway-weekly.vercel.app/issues/2026-10-12
 | Sat 24 Oct | Saturday morning crowd | Medium | Low |
 | Sun 25 Oct | Sunday evening return | Low | Medium |
 | Mon 26 Oct | Normal working day | Low | Low |
+| Tue 27 Oct | Normal working day | Low | Low |
+| Wed 28 Oct | Normal working day | Low | Low |
+| Thu 29 Oct | Normal working day | Low | Low |
+| Fri 30 Oct | Friday evening exodus | Medium | Low |
+| Sat 31 Oct | Saturday morning crowd | Medium | Low |
+| Sun 1 Nov | Sunday evening return | Low | Medium |
 
 ## The next big jams after that
 
@@ -48,26 +48,26 @@ Standing rules:
 
 ## The ringgit this week
 
-S$1 = RM3.1905 on 2026-10-09, 0.1% weaker against the ringgit than a week ago. 30-day range RM3.1900 to RM3.2141.
+S$1 = RM3.1906 on 2026-10-16, flat against the ringgit this week. 30-day range RM3.1822 to RM3.1986.
 
 ## The checkpoints at build time
 
-![Woodlands Causeway, towards Johor](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-2701.jpg)
+![Woodlands Causeway, towards Johor](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2701.jpg)
 *Woodlands Causeway, towards Johor*
 
-![Woodlands Checkpoint, towards BKE](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-2702.jpg)
+![Woodlands Checkpoint, towards BKE](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2702.jpg)
 *Woodlands Checkpoint, towards BKE*
 
-![Woodlands Flyover, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-2704.jpg)
+![Woodlands Flyover, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2704.jpg)
 *Woodlands Flyover, towards the checkpoint*
 
-![Second Link at Tuas](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-4703.jpg)
+![Second Link at Tuas](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4703.jpg)
 *Second Link at Tuas*
 
-![Tuas Checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-4713.jpg)
+![Tuas Checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4713.jpg)
 *Tuas Checkpoint*
 
-![AYE after Tuas West Road, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-12/cam-4712.jpg)
+![AYE after Tuas West Road, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4712.jpg)
 *AYE after Tuas West Road, towards the checkpoint*
 
 ## Sponsor

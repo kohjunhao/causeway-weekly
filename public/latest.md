@@ -1,20 +1,13 @@
-# Causeway Weekly, issue 4, Sunday 18 October 2026
+# Causeway Weekly, issue 5, Sunday 25 October 2026
 
-**No long-weekend jam in the next fortnight.** **Mon 2 Nov: Unpaid Singapore fines block VEP renewal and entry.**
+**Worst day in the next fortnight: Sun 8 Nov.** **Mon 2 Nov: Unpaid Singapore fines block VEP renewal and entry.**
 
-Read online: https://causeway-weekly.vercel.app/issues/2026-10-18
+Read online: https://causeway-weekly.vercel.app/issues/2026-10-25
 
-## Jam forecast, Mon 19 Oct to Sun 1 Nov
+## Jam forecast, Mon 26 Oct to Sun 8 Nov
 
 | Date | What is on | To JB | To SG |
 |---|---|---|---|
-| Mon 19 Oct | Normal working day | Low | Low |
-| Tue 20 Oct | Normal working day | Low | Low |
-| Wed 21 Oct | Normal working day | Low | Low |
-| Thu 22 Oct | Normal working day | Low | Low |
-| Fri 23 Oct | Friday evening exodus | Medium | Low |
-| Sat 24 Oct | Saturday morning crowd | Medium | Low |
-| Sun 25 Oct | Sunday evening return | Low | Medium |
 | Mon 26 Oct | Normal working day | Low | Low |
 | Tue 27 Oct | Normal working day | Low | Low |
 | Wed 28 Oct | Normal working day | Low | Low |
@@ -22,17 +15,24 @@ Read online: https://causeway-weekly.vercel.app/issues/2026-10-18
 | Fri 30 Oct | Friday evening exodus | Medium | Low |
 | Sat 31 Oct | Saturday morning crowd | Medium | Low |
 | Sun 1 Nov | Sunday evening return | Low | Medium |
+| Mon 2 Nov | Normal working day | Low | Low |
+| Tue 3 Nov | Normal working day | Low | Low |
+| Wed 4 Nov | Normal working day | Low | Low |
+| Thu 5 Nov | Normal working day | Low | Low |
+| Fri 6 Nov | Friday evening exodus | Medium | Low |
+| Sat 7 Nov | Saturday morning crowd; eve of Diwali/Deepavali in Singapore; eve of Diwali, Johor only in Malaysia | High | Low |
+| Sun 8 Nov | Sunday evening return; eve of Day off for Diwali/Deepavali in Singapore; Diwali/Deepavali in Singapore; Diwali, Johor only in Malaysia | High | High |
 
 ## The next big jams after that
 
-- **Sat 7 Nov**, to JB: Saturday morning crowd; eve of Diwali/Deepavali in Singapore; eve of Diwali, Johor only in Malaysia
-- **Sun 8 Nov**, both directions: Sunday evening return; eve of Day off for Diwali/Deepavali in Singapore; Diwali/Deepavali in Singapore; Diwali, Johor only in Malaysia
 - **Mon 9 Nov**, to SG: Day off for Diwali/Deepavali in Singapore; last day of the break, return jam
 - **Fri 20 Nov**, to JB: Friday evening exodus; Singapore school holidays begin
 - **Sat 21 Nov**, to JB: Saturday morning crowd; Singapore school holidays begin
 - **Sun 22 Nov**, to SG: Sunday evening return; Singapore school holidays
 - **Fri 27 Nov**, to JB: Friday evening exodus; Singapore school holidays
 - **Sat 28 Nov**, to JB: Saturday morning crowd; Singapore school holidays
+- **Sun 29 Nov**, to SG: Sunday evening return; Singapore school holidays
+- **Fri 4 Dec**, to JB: Friday evening exodus; Singapore school holidays; Johor school holidays begin
 
 ## Rules that bite
 
@@ -48,26 +48,26 @@ Standing rules:
 
 ## The ringgit this week
 
-S$1 = RM3.1906 on 2026-10-16, flat against the ringgit this week. 30-day range RM3.1822 to RM3.1986.
+S$1 = RM3.1956 on 2026-10-23, 0.2% stronger against the ringgit than a week ago. 30-day range RM3.1822 to RM3.1986.
 
 ## The checkpoints at build time
 
-![Woodlands Causeway, towards Johor](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2701.jpg)
+![Woodlands Causeway, towards Johor](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-2701.jpg)
 *Woodlands Causeway, towards Johor*
 
-![Woodlands Checkpoint, towards BKE](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2702.jpg)
+![Woodlands Checkpoint, towards BKE](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-2702.jpg)
 *Woodlands Checkpoint, towards BKE*
 
-![Woodlands Flyover, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-2704.jpg)
+![Woodlands Flyover, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-2704.jpg)
 *Woodlands Flyover, towards the checkpoint*
 
-![Second Link at Tuas](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4703.jpg)
+![Second Link at Tuas](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-4703.jpg)
 *Second Link at Tuas*
 
-![Tuas Checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4713.jpg)
+![Tuas Checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-4713.jpg)
 *Tuas Checkpoint*
 
-![AYE after Tuas West Road, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-18/cam-4712.jpg)
+![AYE after Tuas West Road, towards the checkpoint](https://causeway-weekly.vercel.app/issues/2026-10-25/cam-4712.jpg)
 *AYE after Tuas West Road, towards the checkpoint*
 
 ## Sponsor

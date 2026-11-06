@@ -22,7 +22,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests pillow
-      - run: python build.py
+      - name: Build the issue
+        run: |
+          # Scheduled runs start hours late, sometimes after midnight in
+          # Singapore, so date the issue by the Sunday it was meant for.
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            export ISSUE_DATE=$(TZ=Asia/Singapore date -d "-$(TZ=Asia/Singapore date +%w) days" +%F)
+          fi
+          python build.py
       - name: Commit the issue
         run: |
           git config user.name "causeway-weekly bot"

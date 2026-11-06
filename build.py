@@ -9,6 +9,7 @@ markdown body that the weekly GitHub issue (and so the email) carries.
 import datetime as dt
 import html
 import json
+import os
 import re
 from pathlib import Path
 
@@ -22,9 +23,13 @@ FACTS = json.loads((ROOT / "data" / "facts.json").read_text())
 
 SGT = dt.timezone(dt.timedelta(hours=8))
 NOW = dt.datetime.now(SGT)
-TODAY = NOW.date()
+# The weekly Action sets ISSUE_DATE to the Sunday it was scheduled for, because
+# GitHub starts scheduled runs hours late and a run after midnight would
+# otherwise date the issue Monday. Example: ISSUE_DATE=2026-11-08.
+TODAY = dt.date.fromisoformat(os.environ["ISSUE_DATE"]) if os.environ.get("ISSUE_DATE") else NOW.date()
 WINDOW_DAYS = 14
 LOOKAHEAD_DAYS = 120
+BEYOND_MAX = 8
 FX_RANGE_DAYS = 30
 FLAT_THRESHOLD = 0.05
 
@@ -132,7 +137,10 @@ def fetch_holidays():
         national = first.startswith("Public holiday") and " in " not in first
         johor = first.startswith("Public holiday in") and "Johor" in first
         if national or johor:
-            my[date] = clean_name(summary) + ("" if national else ", Johor only")
+            my[date] = clean_name(summary)
+    for h in FACTS.get("extra_public_holidays", []):
+        cal = sg if h["side"] == "sg" else my
+        cal.setdefault(dt.date.fromisoformat(h["date"]), h["name"])
     return sg, my
 
 
@@ -201,7 +209,7 @@ def forecast_day(d, sg_ph, my_ph, ranges):
     if wd == 6:
         to_sg += WEEKEND_SCORE
         why.append("Sunday evening return")
-    for cal, name in ((sg_ph, "Singapore"), (my_ph, "Malaysia")):
+    for cal, name in ((sg_ph, "Singapore"), (my_ph, "Johor")):
         if nxt in cal:
             to_jb += 2
             why.append(f"eve of {cal[nxt]} in {name}")
@@ -230,6 +238,7 @@ def forecast_day(d, sg_ph, my_ph, ranges):
         "to_jb": level(to_jb),
         "to_sg": level(to_sg),
         "why": why,
+        "score": max(to_jb, to_sg),
     }
 
 
@@ -241,6 +250,10 @@ def forecast(sg_ph, my_ph):
         f = forecast_day(TODAY + dt.timedelta(days=i), sg_ph, my_ph, ranges)
         if HIGH in (f["to_jb"], f["to_sg"]):
             beyond.append(f)
+    # Keep the worst days, so Christmas or Chinese New Year outrank the
+    # ordinary school-holiday weekends that would otherwise fill the list.
+    beyond = sorted(beyond, key=lambda f: (-f["score"], f["date"]))[:BEYOND_MAX]
+    beyond.sort(key=lambda f: f["date"])
     return days, beyond
 
 
@@ -284,7 +297,17 @@ def headline(days, soon):
     return worst_txt, change_txt
 
 
+def rule_tag(r):
+    if r["when"] <= TODAY:
+        return "Already in force"
+    if r.get("month_only"):
+        return f"Expected {r['when'].strftime('%B %Y')}, no exact date yet"
+    return f"From {fmt_long(r['when'])}"
+
+
 def r_date(r):
+    if r.get("month_only"):
+        return r["when"].strftime("%B %Y")
     return fmt(r["when"]) if r["when"].year == TODAY.year else r["when"].strftime("%-d %b %Y")
 
 
@@ -358,7 +381,7 @@ def render_beyond(beyond):
     if not beyond:
         return "<p>No long-weekend jams in the next four months. Enjoy it.</p>"
     items = []
-    for f in beyond[:8]:
+    for f in beyond:
         d = "both directions" if f["to_jb"] == HIGH and f["to_sg"] == HIGH else ("to JB" if f["to_jb"] == HIGH else "to SG")
         items.append(f"<li><b>{fmt(f['date'])}</b>, {d}: {esc('; '.join(f['why']))}</li>")
     return "<ul>" + "".join(items) + "</ul>"
@@ -367,7 +390,7 @@ def render_beyond(beyond):
 def render_rules(soon, later):
     out = []
     for r in soon:
-        tag = "Already in force" if r["when"] <= TODAY else f"From {fmt_long(r['when'])}"
+        tag = rule_tag(r)
         out.append(f'<div class="rule"><span class="kicker">{esc(tag)}</span><b>{esc(r["title"])}</b>{esc(r["body"])} <a href="{r["source"]}">{esc(r["source_name"])}</a></div>')
     if later:
         out.append("<h3>Further out</h3>")
@@ -450,14 +473,14 @@ def issue_markdown(ctx):
         lines.append(f"| {fmt(f['date'])} | {why} | {f['to_jb']} | {f['to_sg']} |")
     lines += ["", "## The next big jams after that", ""]
     if beyond:
-        for f in beyond[:8]:
+        for f in beyond:
             d = "both directions" if f["to_jb"] == HIGH and f["to_sg"] == HIGH else ("to JB" if f["to_jb"] == HIGH else "to SG")
             lines.append(f"- **{fmt(f['date'])}**, {d}: {'; '.join(f['why'])}")
     else:
         lines.append("No long-weekend jams in the next four months.")
     lines += ["", "## Rules that bite", ""]
     for r in soon + later:
-        tag = "Already in force" if r["when"] <= TODAY else f"From {fmt_long(r['when'])}"
+        tag = rule_tag(r)
         lines.append(f"- **{tag}: {r['title']}.** {r['body']} [{r['source_name']}]({r['source']})")
     lines += ["", "Standing rules:", ""]
     for r in FACTS["standing_rules"]:
@@ -517,8 +540,8 @@ def write_index(manifest, latest_html, cam_count):
 <ul class="archive">{archive}</ul>
 
 <h2 id="method">How the forecast works</h2>
-<p>Each day in the window gets a score for each direction. Friday evening and Saturday morning add one point towards Johor, Sunday evening adds one point back to Singapore. The eve of a public holiday on either side adds two points towards Johor, and the last day of a break adds two points back. The day before a school holiday starts, and the day it ends, add two points in the matching direction, and every day inside a school holiday adds one point both ways. Three points is High, two is Medium.</p>
-<p>The calendars behind it: Singapore public holidays and Malaysian national plus Johor holidays from the public Google holiday calendars, MOE school terms for 2026 and 2027, and the KPM Group B calendar that Johor follows from 2026. The ICA record figures come from its media releases. All of it is in <a href="{REPO_URL}/blob/main/data/facts.json">one dated file</a>; if a date is wrong, fix it there and the next issue is right.</p>
+<p>Each day in the window gets a score for each direction. Friday evening and Saturday morning add two points towards Johor, Sunday evening adds two points back to Singapore. The eve of a public holiday on either side adds two points towards Johor, and the last day of a break adds two points back. The day before a school holiday starts, and the day it ends, add two points in the matching direction, and every day inside a school holiday adds one point both ways. Three points is High, two is Medium.</p>
+<p>The calendars behind it: Singapore public holidays and Malaysian national plus Johor holidays from the public Google holiday calendars, topped up with the holidays and replacement days those calendars miss, MOE school terms for 2026 and 2027, and the KPM Group B calendars for 2026 and 2027 that Johor follows, festive school closures included. The ICA record figures come from its media releases. All of it is in <a href="{REPO_URL}/blob/main/data/facts.json">one dated file</a>; if a date is wrong, fix it there and the next issue is right.</p>
 
 <h2 id="sponsor">Sponsor an issue</h2>
 {render_sponsor()}

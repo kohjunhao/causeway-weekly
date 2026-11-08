@@ -8,6 +8,7 @@ markdown body that the weekly GitHub issue (and so the email) carries.
 """
 import datetime as dt
 import html
+import io
 import json
 import os
 import re
@@ -62,6 +63,7 @@ HIGH_SCORE = 3
 MEDIUM_SCORE = 2
 WEEKEND_SCORE = 2
 TIMEOUT = 30
+CAMERA_ATTEMPTS = 2
 
 
 def get(url, **kwargs):
@@ -85,19 +87,33 @@ def fetch_cameras():
     return stamp, out
 
 
+def save_camera_image(cam, folder):
+    path = folder / f"cam-{cam['id']}.jpg"
+    img = Image.open(io.BytesIO(get(cam["image"]).content)).convert("RGB")
+    ratio = CAMERA_WIDTH / img.width
+    img = img.resize((CAMERA_WIDTH, round(img.height * ratio)))
+    img.save(path, "JPEG", quality=72, optimize=True)
+    cam["file"] = path.name
+
+
 def save_camera_images(cams, folder):
+    """Save each camera's photo and return the cameras that worked.
+
+    LTA sometimes serves a half-written photo, so one bad camera is retried
+    and then left out of the issue instead of stopping the whole build.
+    """
     folder.mkdir(parents=True, exist_ok=True)
+    kept = []
     for cam in cams:
-        raw = get(cam["image"]).content
-        path = folder / f"cam-{cam['id']}.jpg"
-        tmp = folder / f"cam-{cam['id']}.src"
-        tmp.write_bytes(raw)
-        img = Image.open(tmp).convert("RGB")
-        ratio = CAMERA_WIDTH / img.width
-        img = img.resize((CAMERA_WIDTH, round(img.height * ratio)))
-        img.save(path, "JPEG", quality=72, optimize=True)
-        tmp.unlink()
-        cam["file"] = path.name
+        for attempt in range(1, CAMERA_ATTEMPTS + 1):
+            try:
+                save_camera_image(cam, folder)
+            except (requests.RequestException, OSError) as e:
+                print(f"camera {cam['id']} attempt {attempt} failed: {e}")
+                continue
+            kept.append(cam)
+            break
+    return kept
 
 
 def parse_ics(text):
@@ -577,7 +593,7 @@ def main():
 
     stamp, cams = fetch_cameras()
     folder_rel = f"issues/{TODAY.isoformat()}"
-    save_camera_images(cams, PUBLIC / folder_rel)
+    cams = save_camera_images(cams, PUBLIC / folder_rel)
     sg_ph, my_ph = fetch_holidays()
     fx = fetch_fx()
     days, beyond = forecast(sg_ph, my_ph)
